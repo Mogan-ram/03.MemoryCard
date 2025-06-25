@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.game-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 90%;
+    width: 600px;
+    /* Adjust as needed */
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.controls button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
+}
+
+.info span {
+    margin-left: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.game-board {
+    display: grid;
+    /* Default grid columns - will be overridden by JS for precise sizing */
+    grid-template-columns: repeat(4, 1fr);
+    /* <--- ADD THIS LINE FOR DEFAULT 4-COLUMN GRID */
+    gap: 10px;
+    perspective: 1000px;
+    /* For 3D flip effect */
+    margin: 0 auto;
+    max-width: 440px;
+    /* (4 * 100px card width) + (3 * 10px gap) = 430px. Add a little buffer. */
+    /* This max-width helps contain the grid if there are fewer cards or if cards are smaller */
+}
+
+
+.card {
+    width: 100px;
+    /* Base size */
+    height: 100px;
+    /* Base size */
+    background-color: #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    /* Hide the back when flipped */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    /* For debugging or simple icons */
+}
+
+.card-front {
+    background-color: #28a745;
+    /* Face-down color */
+    color: white;
+    transform: rotateY(0deg);
+}
+
+.card-back {
+    background-color: #e9ecef;
+    /* Face-up background */
+    transform: rotateY(180deg);
+}
+
+.card-back img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 5px;
+}
+
+/* Flipped state */
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Matched state */
+.card.matched {
+    opacity: 0.6;
+    /* Slightly dim matched cards */
+    pointer-events: none;
+    /* Disable clicks on matched cards */
+}
+
+/* Message Box */
+.message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.message h2 {
+    color: #155724;
+    margin-top: 0;
+}
+
+.message p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.message button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.message button:hover {
+    background-color: #218838;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-container {
+        padding: 20px;
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+
+    .info span {
+        font-size: 0.9em;
+    }
+
+    .controls {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .card {
+        width: 70px;
+        height: 70px;
+    }
+
+    .controls button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+}

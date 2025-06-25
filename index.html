@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Card Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <h1>Memory Card Game</h1>
+        <div class="highscore-box" id="highscore-box">
+            Highscore: <span id="highscore-value">--</span>
+        </div>
+        <div class="controls">
+            <button id="new-game-btn">New Game</button>
+            <div class="info">
+                <span>Moves: <span id="moves-count">0</span></span>
+                <span>Time: <span id="time-count">0s</span></span>
+            </div>
+        </div>
+        <div class="game-board" id="game-board"></div>
+        <div id="congratulations-message" class="message hidden">
+            <h2>Congratulations!</h2>
+            <p>You matched all pairs in <span id="final-moves"></span> moves and <span id="final-time"></span>!</p>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
