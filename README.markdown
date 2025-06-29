@@ -71,12 +71,3 @@ memory-card-game/
 - **Visual Animations**: 3D card flip effects and dimming for matched cards.
 - **Responsive Design**: Adjusts card sizes and layout for smaller screens.
 
-### Submission Details
-- **GitHub Repository**: [Insert your GitHub repo link here]
-- **Live Demo**: [Insert live demo link if hosted, e.g., on GitHub Pages]
-- **Contact**: For queries, reach out to moganram10@gmail.com
-
-### Future Enhancements
-- Add difficulty levels (e.g., 6x6 grid or time limits).
-- Include sound effects for card flips or matches.
-- Support theme selection for different card image sets.
